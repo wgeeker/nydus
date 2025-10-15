@@ -472,7 +472,7 @@ pub mod fusedev_upgrade {
         let backend_state =
             FusedevBackendState::restore(&mut state_data).map_err(UpgradeMgrError::Deserialize)?;
 
-        let mut state = FusedevState::from(&backend_state);
+        let state = FusedevState::from(&backend_state);
 
         // restore the fuse daemon
         svc.as_any()
@@ -493,17 +493,17 @@ pub mod fusedev_upgrade {
         }
 
         // restore vfs
-        svc.get_vfs()
-            .restore_from_bytes(&mut state.vfs_state_data)?;
-        state
-            .fs_mount_cmd_map
-            .iter()
-            .try_for_each(|(_, mount_wrapper)| -> Result<()> {
-                svc.restore_mount(&mount_wrapper.cmd, mount_wrapper.vfs_index)?;
-                // as we are in upgrade stage and obtain the lock, `unwrap` is safe here
-                //mgr.add_mounts_state(cmd.clone(), *vfs_idx);
-                Ok(())
-            })?;
+        // svc.get_vfs()
+        //     .restore_from_bytes(&mut state.vfs_state_data)?;
+        // state
+        //     .fs_mount_cmd_map
+        //     .iter()
+        //     .try_for_each(|(_, mount_wrapper)| -> Result<()> {
+        //         svc.restore_mount(&mount_wrapper.cmd, mount_wrapper.vfs_index)?;
+        //         // as we are in upgrade stage and obtain the lock, `unwrap` is safe here
+        //         //mgr.add_mounts_state(cmd.clone(), *vfs_idx);
+        //         Ok(())
+        //     })?;
 
         //restore upgrade manager fuse stat
         mgr.fuse_deamon_stat = state;
