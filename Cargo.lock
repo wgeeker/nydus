@@ -629,6 +629,27 @@ dependencies = [
  "bitflags 1.3.2",
  "caps",
  "core-foundation-sys",
+ "lazy_static",
+ "libc",
+ "log",
+ "mio",
+ "nix",
+ "radix_trie",
+ "vhost",
+ "virtio-queue",
+ "vm-memory",
+ "vmm-sys-util",
+]
+
+[[package]]
+name = "fuse-backend-rs"
+version = "0.12.0"
+source = "git+https://github.com/wgeeker/fuse-backend-rs.git?branch=0.12.0-debug#ea60c6879622884db4427c13888e6ae2bed5cf29"
+dependencies = [
+ "arc-swap",
+ "bitflags 1.3.2",
+ "caps",
+ "core-foundation-sys",
  "dbs-snapshot",
  "lazy_static",
  "libc",
@@ -1322,7 +1343,7 @@ dependencies = [
 name = "nydus-clib"
 version = "0.1.0"
 dependencies = [
- "fuse-backend-rs",
+ "fuse-backend-rs 0.12.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "libc",
  "log",
  "nydus-api",
@@ -1338,7 +1359,7 @@ dependencies = [
  "arc-swap",
  "assert_matches",
  "bitflags 1.3.2",
- "fuse-backend-rs",
+ "fuse-backend-rs 0.12.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "lazy_static",
  "libc",
  "log",
@@ -1360,7 +1381,7 @@ dependencies = [
  "anyhow",
  "clap",
  "flexi_logger",
- "fuse-backend-rs",
+ "fuse-backend-rs 0.12.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "hex",
  "hyper",
  "hyperlocal",
@@ -1399,7 +1420,7 @@ version = "0.3.0"
 dependencies = [
  "bytes",
  "dbs-allocator",
- "fuse-backend-rs",
+ "fuse-backend-rs 0.12.0 (git+https://github.com/wgeeker/fuse-backend-rs.git?branch=0.12.0-debug)",
  "libc",
  "log",
  "mio",
@@ -1433,7 +1454,7 @@ dependencies = [
  "arc-swap",
  "base64",
  "bitflags 1.3.2",
- "fuse-backend-rs",
+ "fuse-backend-rs 0.12.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "gpt",
  "hex",
  "hmac",
