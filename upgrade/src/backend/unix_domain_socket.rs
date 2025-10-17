@@ -25,6 +25,7 @@ const MAX_STATE_DATA_LENGTH: usize = 1024 * 32;
 
 impl StorageBackend for UdsStorageBackend {
     fn save(&mut self, fds: &[RawFd], data: &[u8]) -> Result<usize> {
+        println!("save fds use uds: {:?}", fds);
         if fds.is_empty() {
             return Err(StorageBackendErr::NoEnoughFds);
         }
