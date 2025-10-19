@@ -499,7 +499,7 @@ pub mod fusedev_upgrade {
             .fs_mount_cmd_map
             .iter()
             .try_for_each(|(_, mount_wrapper)| -> Result<()> {
-                svc.restore_mount(&mount_wrapper.cmd, mount_wrapper.vfs_index)?;
+                // svc.restore_mount(&mount_wrapper.cmd, mount_wrapper.vfs_index)?;
                 // as we are in upgrade stage and obtain the lock, `unwrap` is safe here
                 //mgr.add_mounts_state(cmd.clone(), *vfs_idx);
                 Ok(())
