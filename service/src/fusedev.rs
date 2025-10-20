@@ -821,7 +821,12 @@ pub fn create_vfs_backend(
         }
     };
 
-    println!("is_fuse {}, hybrid_mode {}", is_fuse, hybrid_mode);
+    println!("create_vfs_backend: is_fuse {}, hybrid_mode {}", is_fuse, hybrid_mode);
+    println!("create_vfs_backend: no_opendir {:?}", opts.no_opendir);
+    println!("create_vfs_backend: no_open {:?}", opts.no_open);
+    println!("create_vfs_backend: killpriv_v2 {:?}", opts.killpriv_v2);
+    println!("create_vfs_backend: no_opendir {:?}", opts.no_opendir);
+
     if !is_fuse && hybrid_mode {
         opts.no_open = false;
         opts.no_opendir = false;
