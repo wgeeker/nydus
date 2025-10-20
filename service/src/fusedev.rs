@@ -821,6 +821,7 @@ pub fn create_vfs_backend(
         }
     };
 
+    println!("is_fuse {}, hybrid_mode {}", is_fuse, hybrid_mode);
     if !is_fuse && hybrid_mode {
         opts.no_open = false;
         opts.no_opendir = false;
